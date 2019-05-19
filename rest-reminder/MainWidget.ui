@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
+    <width>615</width>
     <height>400</height>
    </rect>
   </property>
@@ -152,7 +152,7 @@
        <item row="1" column="0">
         <widget class="QLabel" name="usedTimeLable">
          <property name="text">
-          <string>20min</string>
+          <string>*min</string>
          </property>
         </widget>
        </item>
@@ -172,7 +172,7 @@
        <item row="1" column="2">
         <widget class="QLabel" name="remainingTimeLabel">
          <property name="text">
-          <string>13min</string>
+          <string>*min</string>
          </property>
         </widget>
        </item>

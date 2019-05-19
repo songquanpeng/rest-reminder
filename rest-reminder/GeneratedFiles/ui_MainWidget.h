@@ -64,7 +64,7 @@ public:
     {
         if (MainWidgetClass->objectName().isEmpty())
             MainWidgetClass->setObjectName(QStringLiteral("MainWidgetClass"));
-        MainWidgetClass->resize(600, 400);
+        MainWidgetClass->resize(615, 400);
         MainWidgetClass->setStyleSheet(QStringLiteral("font: 14pt \"Consolas\";"));
         verticalLayout = new QVBoxLayout(MainWidgetClass);
         verticalLayout->setSpacing(6);
@@ -244,8 +244,8 @@ public:
         soundCheckBox->setText(QApplication::translate("MainWidgetClass", "Sound", nullptr));
         popupsCheckBox->setText(QApplication::translate("MainWidgetClass", "Pop-ups", nullptr));
         label_4->setText(QString());
-        usedTimeLable->setText(QApplication::translate("MainWidgetClass", "20min", nullptr));
-        remainingTimeLabel->setText(QApplication::translate("MainWidgetClass", "13min", nullptr));
+        usedTimeLable->setText(QApplication::translate("MainWidgetClass", "*min", nullptr));
+        remainingTimeLabel->setText(QApplication::translate("MainWidgetClass", "*min", nullptr));
         soundFileLabel->setText(QApplication::translate("MainWidgetClass", "No file choosen", nullptr));
         controlBtn->setText(QApplication::translate("MainWidgetClass", "Start", nullptr));
         stopBtn->setText(QApplication::translate("MainWidgetClass", "Stop", nullptr));
