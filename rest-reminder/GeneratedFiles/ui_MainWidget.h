@@ -16,6 +16,7 @@
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QSpinBox>
@@ -39,7 +40,8 @@ public:
     QGridLayout *gridLayout_3;
     QCheckBox *soundCheckBox;
     QCheckBox *popupsCheckBox;
-    QSpacerItem *verticalSpacer_4;
+    QProgressBar *mainProgressBar;
+    QProgressBar *secondProgressBar;
     QGridLayout *gridLayout_4;
     QSpacerItem *horizontalSpacer_6;
     QSpacerItem *horizontalSpacer_5;
@@ -131,9 +133,18 @@ public:
 
         verticalLayout->addLayout(horizontalLayout);
 
-        verticalSpacer_4 = new QSpacerItem(20, 37, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        mainProgressBar = new QProgressBar(MainWidgetClass);
+        mainProgressBar->setObjectName(QStringLiteral("mainProgressBar"));
+        mainProgressBar->setValue(0);
 
-        verticalLayout->addItem(verticalSpacer_4);
+        verticalLayout->addWidget(mainProgressBar);
+
+        secondProgressBar = new QProgressBar(MainWidgetClass);
+        secondProgressBar->setObjectName(QStringLiteral("secondProgressBar"));
+        secondProgressBar->setMaximum(60);
+        secondProgressBar->setValue(0);
+
+        verticalLayout->addWidget(secondProgressBar);
 
         gridLayout_4 = new QGridLayout();
         gridLayout_4->setSpacing(6);
@@ -244,7 +255,7 @@ public:
         soundCheckBox->setText(QApplication::translate("MainWidgetClass", "Sound", nullptr));
         popupsCheckBox->setText(QApplication::translate("MainWidgetClass", "Pop-ups", nullptr));
         label_4->setText(QString());
-        usedTimeLable->setText(QApplication::translate("MainWidgetClass", "*min", nullptr));
+        usedTimeLable->setText(QApplication::translate("MainWidgetClass", "0 min", nullptr));
         remainingTimeLabel->setText(QApplication::translate("MainWidgetClass", "*min", nullptr));
         soundFileLabel->setText(QApplication::translate("MainWidgetClass", "No file choosen", nullptr));
         controlBtn->setText(QApplication::translate("MainWidgetClass", "Start", nullptr));

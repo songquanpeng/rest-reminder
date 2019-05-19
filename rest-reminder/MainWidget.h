@@ -1,7 +1,6 @@
 #pragma once
 
 #include <QtWidgets/QWidget>
-#include <QMediaPlayer>
 #include "ui_MainWidget.h"
 
 class MainWidget : public QWidget
@@ -10,7 +9,7 @@ class MainWidget : public QWidget
 
 public:
 	MainWidget(QWidget *parent = Q_NULLPTR);
-	QMediaPlayer soundPlayer;
+	//QMediaPlayer soundPlayer;
 	virtual void timerEvent(QTimerEvent* event);
 	virtual void closeEvent(QCloseEvent* event);
 	void startWork();
@@ -29,8 +28,9 @@ public slots:
 
 private:
 	Ui::MainWidgetClass ui;
-	int minuteTimer;
+	int secondTimer;
 	bool ongoing;
 	bool working;
 	int count;
+	int secondCount;
 };
