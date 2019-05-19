@@ -54,4 +54,7 @@
   <ItemGroup>
     <ResourceCompile Include="rest-reminder.rc" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\README.md" />
+  </ItemGroup>
 </Project>
