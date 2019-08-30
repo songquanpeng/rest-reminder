@@ -1,3 +1,5 @@
 <RCC>
-    <qresource prefix="/image"/>
+    <qresource prefix="/image">
+        <file>rest-reminder.ico</file>
+    </qresource>
 </RCC>

@@ -16,7 +16,6 @@ MainWidget::MainWidget(QWidget *parent)
 	working = true;
 	minuteTimer = startTimer(1000); // One minute
 	minuteCounter = 0;
-	trayIcon->show();
 }
 
 void MainWidget::timeLapse()
@@ -27,12 +26,18 @@ void MainWidget::timeLapse()
 	if (++minuteCounter >= currentTimeLength) {
 		minuteCounter = 0;
 		remind();
+		working = !working;
 	}
 }
 
 void MainWidget::remind()
 {
-	trayIcon->showMessage("test", "Hi!");
+	if (working) {
+		trayIcon->showMessage("Start taking a break.", "Please pay attention to rest eyes.");
+	}
+	else {
+		trayIcon->showMessage("Start working.", "Let's get started.");
+	}
 }
 
 void MainWidget::on_controlBtn_clicked()
@@ -69,7 +74,8 @@ void MainWidget::timerEvent(QTimerEvent* event)
 
 void MainWidget::closeEvent(QCloseEvent* event)
 {
-	event->accept();
+	hide();
+	event->ignore();
 }
 
 void MainWidget::createActions()
@@ -98,4 +104,7 @@ void MainWidget::createTrayIcon()
 
 	trayIcon = new QSystemTrayIcon(this);
 	trayIcon->setContextMenu(trayIconMenu);
+	trayIcon->setIcon(QIcon(":/image/rest-reminder.ico"));
+	trayIcon->setVisible(true);
+	trayIcon->show();
 }
