@@ -1,6 +1,8 @@
 #pragma once
 
 #include <QtWidgets/QWidget>
+#include <QSystemTrayIcon>
+
 #include "ui_MainWidget.h"
 
 class MainWidget : public QWidget
@@ -12,25 +14,31 @@ public:
 	//QMediaPlayer soundPlayer;
 	virtual void timerEvent(QTimerEvent* event);
 	virtual void closeEvent(QCloseEvent* event);
-	void startWork();
-	void startRest();
-	void endWork();
-	void endRest();
 	void timeLapse();
+protected:
+	//void closeEvent(QCloseEvent* event) override;
 
 public slots:
 	void on_controlBtn_clicked();
 	void on_stopBtn_clicked();
-	void on_chooseBtn_clicked();
 	void remind();
-	void soundReminder();
-	void popupsReminder();
+	//void iconActivated(QSystemTrayIcon::ActivationReason reason);
+	//void showMessage();
+	//void messageClicked();
 
 private:
+	void createActions();
+	void createTrayIcon();
+
 	Ui::MainWidgetClass ui;
-	int secondTimer;
+	QAction* controlAction;
+	QAction* stopAction;
+	QAction* restoreAction;
+	QAction* quitAction;
+	QSystemTrayIcon* trayIcon;
+	QMenu* trayIconMenu;
+	int minuteTimer;
 	bool ongoing;
 	bool working;
-	int count;
-	int secondCount;
+	int minuteCounter;
 };
