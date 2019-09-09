@@ -37,7 +37,9 @@ public:
         MainWidgetClass->resize(500, 120);
         MainWidgetClass->setMinimumSize(QSize(500, 120));
         MainWidgetClass->setMaximumSize(QSize(500, 120));
-        MainWidgetClass->setStyleSheet(QStringLiteral("font: 14pt \"Consolas\";"));
+        MainWidgetClass->setStyleSheet(QLatin1String("font: 14pt \"Segoe UI\";\n"
+"background-color: rgb(51, 51, 51);\n"
+"color: rgb(255, 255, 255);"));
         gridLayout = new QGridLayout(MainWidgetClass);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         label = new QLabel(MainWidgetClass);
@@ -47,6 +49,7 @@ public:
 
         woringTimeSpinBox = new QSpinBox(MainWidgetClass);
         woringTimeSpinBox->setObjectName(QStringLiteral("woringTimeSpinBox"));
+        woringTimeSpinBox->setStyleSheet(QStringLiteral(""));
         woringTimeSpinBox->setMinimum(1);
         woringTimeSpinBox->setMaximum(999);
         woringTimeSpinBox->setValue(40);
@@ -67,7 +70,7 @@ public:
         restingTimeSpinBox->setObjectName(QStringLiteral("restingTimeSpinBox"));
         restingTimeSpinBox->setMinimum(0);
         restingTimeSpinBox->setMaximum(999);
-        restingTimeSpinBox->setValue(10);
+        restingTimeSpinBox->setValue(5);
 
         gridLayout->addWidget(restingTimeSpinBox, 1, 1, 1, 1);
 

@@ -103,6 +103,8 @@ void MainWidget::createTrayIcon()
 	trayIconMenu->addAction(quitAction);
 
 	trayIcon = new QSystemTrayIcon(this);
+	connect(trayIcon, &QSystemTrayIcon::activated, this, &QWidget::showNormal);
+	trayIcon->setToolTip("Rest reminder");
 	trayIcon->setContextMenu(trayIconMenu);
 	trayIcon->setIcon(QIcon(":/image/rest-reminder.ico"));
 	trayIcon->setVisible(true);

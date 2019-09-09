@@ -2,7 +2,6 @@
 
 #include <QtWidgets/QWidget>
 #include <QSystemTrayIcon>
-
 #include "ui_MainWidget.h"
 
 class MainWidget : public QWidget
@@ -23,7 +22,6 @@ public slots:
 private:
 	void createActions();
 	void createTrayIcon();
-
 	Ui::MainWidgetClass ui;
 	QAction* controlAction;
 	QAction* stopAction;
