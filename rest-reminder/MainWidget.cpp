@@ -14,7 +14,7 @@ MainWidget::MainWidget(QWidget *parent)
 	createTrayIcon();
 	ongoing = false;
 	working = true;
-	minuteTimer = startTimer(1000); // One minute
+	minuteTimer = startTimer(60*1000); // One minute
 	minuteCounter = 0;
 }
 
@@ -23,7 +23,8 @@ void MainWidget::timeLapse()
 	int workingTimeLength = ui.woringTimeSpinBox->value();
 	int restingTimeLength = ui.restingTimeSpinBox->value();
 	int currentTimeLength = working ? workingTimeLength : restingTimeLength;
-	if (++minuteCounter >= currentTimeLength) {
+	this->setWindowTitle("Current state: running " + QString::number(++minuteCounter) + " / " + QString::number(currentTimeLength));
+	if (minuteCounter >= currentTimeLength) {
 		minuteCounter = 0;
 		remind();
 		working = !working;
@@ -45,10 +46,12 @@ void MainWidget::on_controlBtn_clicked()
 	ongoing = !ongoing;
 	if (ongoing) {
 		ui.controlBtn->setText("Pause");
+		this->setWindowTitle("Current state: running");
 	}
 	else
 	{
 		ui.controlBtn->setText("Start");
+		this->setWindowTitle("Current state: paused");
 	}
 }
 
@@ -56,6 +59,7 @@ void MainWidget::on_stopBtn_clicked()
 {
 	ongoing = false;
 	ui.controlBtn->setText("Start");
+	this->setWindowTitle("Current state: stopped");
 	working = true;
 	minuteCounter = 0;
 }
