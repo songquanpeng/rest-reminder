@@ -39,7 +39,8 @@ public:
         MainWidgetClass->setMaximumSize(QSize(500, 120));
         MainWidgetClass->setStyleSheet(QLatin1String("font: 14pt \"Segoe UI\";\n"
 "background-color: rgb(51, 51, 51);\n"
-"color: rgb(255, 255, 255);"));
+"color: rgb(255, 255, 255);\n"
+""));
         gridLayout = new QGridLayout(MainWidgetClass);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         label = new QLabel(MainWidgetClass);

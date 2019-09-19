@@ -17,6 +17,7 @@ public:
 public slots:
 	void on_controlBtn_clicked();
 	void on_stopBtn_clicked();
+	void iconActivated(QSystemTrayIcon::ActivationReason reason);
 	void remind();
 
 private:

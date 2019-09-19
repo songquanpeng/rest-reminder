@@ -64,7 +64,6 @@ void MainWidget::on_stopBtn_clicked()
 	minuteCounter = 0;
 }
 
-
 void MainWidget::timerEvent(QTimerEvent* event)
 {
 	if (ongoing)
@@ -107,10 +106,30 @@ void MainWidget::createTrayIcon()
 	trayIconMenu->addAction(quitAction);
 
 	trayIcon = new QSystemTrayIcon(this);
-	connect(trayIcon, &QSystemTrayIcon::activated, this, &QWidget::showNormal);
+	connect(trayIcon, &QSystemTrayIcon::activated, this, &MainWidget::iconActivated);
 	trayIcon->setToolTip("Rest reminder");
 	trayIcon->setContextMenu(trayIconMenu);
 	trayIcon->setIcon(QIcon(":/image/rest-reminder.ico"));
 	trayIcon->setVisible(true);
 	trayIcon->show();
+}
+
+void MainWidget::iconActivated(QSystemTrayIcon::ActivationReason reason)
+{
+	switch (reason)
+	{
+	case QSystemTrayIcon::Unknown:
+		break;
+	case QSystemTrayIcon::Context:
+		break;
+	case QSystemTrayIcon::DoubleClick:
+		QWidget::showNormal();
+		break;
+	case QSystemTrayIcon::Trigger:
+		break;
+	case QSystemTrayIcon::MiddleClick:
+		break;
+	default:
+		break;
+	}
 }

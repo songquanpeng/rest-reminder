@@ -28,7 +28,8 @@
   <property name="styleSheet">
    <string notr="true">font: 14pt &quot;Segoe UI&quot;;
 background-color: rgb(51, 51, 51);
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
