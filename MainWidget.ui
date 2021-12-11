@@ -25,6 +25,10 @@
   <property name="windowTitle">
    <string>Rest Reminder</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>rest-reminder.ico</normaloff>rest-reminder.ico</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">font: 14pt &quot;Segoe UI&quot;;
 background-color: rgb(51, 51, 51);
